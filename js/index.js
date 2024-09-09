@@ -18,22 +18,23 @@ function useColorPicker(){
 pbCol.addEventListener('click', useColorPicker);
 colorPicker.addEventListener('input', useColorPicker)
 
-increaseBtn.addEventListener('click', () =>{
-    pArray.forEach(p => incrementFont(p))
-})
-decreaseBtn.addEventListener('click', () => {
-    pArray.forEach(p => decreaseFont(p))
-})
-
 let count = 15; // 15 er start valuen
 
-function incrementFont(p){
+increaseBtn.addEventListener('click', () =>{
     count++
-    p.style.fontSize = count + 'px'
+    pArray.forEach(p => incrementFont(p, count))
+})
+decreaseBtn.addEventListener('click', () => {
+    count--
+    pArray.forEach(p => decreaseFont(p, count))
+})
+
+
+function incrementFont(p, fontSize){
+    p.style.fontSize = fontSize + 'px'
     console.log(p.style.fontSize);
 }
-function decreaseFont(p){
-    count--
-    p.style.fontSize = count + 'px'
+function decreaseFont(p, fontSize){
+    p.style.fontSize = fontSize + 'px'
     console.log(p.style.fontSize)
 }
